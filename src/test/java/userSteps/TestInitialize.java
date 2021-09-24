@@ -1,4 +1,4 @@
-package steps;
+package userSteps;
 
 import io.cucumber.java.Before;
 import utilities.RestAssuredExtension;

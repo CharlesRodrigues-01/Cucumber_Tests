@@ -1,4 +1,4 @@
-package steps;
+package userSteps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -78,7 +78,7 @@ public class UserOperationsSteps {
     @Given("I build a user")
     public void buildAUser(DataTable dataTable) {
         rows = dataTable.asMap(String.class, String.class);
-        user = new User(rows);
+        user = new User(rows.get("nome"), rows.get("email"), rows.get("password"), rows.get("administrador"));
     }
 
     @When("I perform a POST request with the built user")
