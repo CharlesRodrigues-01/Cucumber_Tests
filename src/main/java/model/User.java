@@ -1,4 +1,6 @@
-package Model;
+package model;
+
+import java.util.Map;
 
 public class User {
 
@@ -12,6 +14,13 @@ public class User {
         this.email = email;
         this.password = password;
         this.administrador = administrador;
+    }
+
+    public User(Map<String, String> rows) {
+        this.nome = rows.get("nome");
+        this.email = rows.get("email");
+        this.password = rows.get("password");
+        this.administrador = rows.get("administrador");
     }
 
     public String getNome() {

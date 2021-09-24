@@ -1,6 +1,6 @@
 package utilities;
 
-import Model.User;
+import model.User;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -14,10 +14,9 @@ import static io.restassured.RestAssured.given;
 
 public class RestAssuredExtension {
 
-    public static RequestSpecification request;
+    protected static RequestSpecification request;
 
     public RestAssuredExtension() {
-
         RequestSpecBuilder builder = new RequestSpecBuilder();
         builder.setBaseUri("https://serverest.dev/");
         builder.setContentType(ContentType.JSON);
@@ -25,8 +24,8 @@ public class RestAssuredExtension {
         request = given().spec(requestSpec);
     }
 
-    public static ResponseOptions<Response> getUserById(String url, String path, String param){
-        request.param(path, param);
+    public static ResponseOptions<Response> getUserByParam(String url, String param, String paramValue){
+        request.param(param, paramValue);
         try {
             return request.get(new URI(url));
         } catch (URISyntaxException e) {

@@ -1,6 +1,6 @@
 package utilities;
 
-import Model.User;
+import model.User;
 
 public class UserBuilder {
 
